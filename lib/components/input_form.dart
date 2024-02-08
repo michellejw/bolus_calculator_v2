@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class InputForm extends StatefulWidget {
   const InputForm({super.key});
@@ -12,6 +13,10 @@ class _InputFormState extends State<InputForm> {
   double _insulinSensitivity = 0.0;
   double _carbRatio = 0.0;
   double _targetBloodGlucose = 0.0;
+
+  final FocusNode _insulinSensitivityFocusNode = FocusNode();
+  final FocusNode _carbRatioFocusNode = FocusNode();
+  final FocusNode _targetBloodGlucoseFocusNode = FocusNode();
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
@@ -42,35 +47,88 @@ class _InputFormState extends State<InputForm> {
         child: Column(
           children: <Widget>[
             TextFormField(
-                decoration:
-                    const InputDecoration(labelText: 'Insulin Sensitivity'),
-                keyboardType:
-                    const TextInputType.numberWithOptions(decimal: true),
+                focusNode: _insulinSensitivityFocusNode,
+                keyboardType: const TextInputType.numberWithOptions(
+                  signed: true,
+                  decimal: false,
+                ),
+                textInputAction: TextInputAction.next,
+                onFieldSubmitted: (_) {
+                  // When "Next" button is pressed, move focus to the next field
+                  FocusScope.of(context).requestFocus(_carbRatioFocusNode);
+                },
+                decoration: const InputDecoration(
+                  labelText: 'Insulin Sensitivity',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(20.0),
+                    ),
+                    borderSide: BorderSide(
+                      // color: Colors.black,
+                      width: 2.0,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  ),
+                ),
                 validator: _validatePositiveNumber,
                 onSaved: (value) {
                   _insulinSensitivity = double.parse(value!);
                 }),
+            Gap(15.0),
             TextFormField(
-                decoration: const InputDecoration(labelText: 'Carb ratio'),
+                focusNode: _carbRatioFocusNode,
+                decoration: const InputDecoration(
+                  labelText: 'Carb ratio',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    borderSide: BorderSide(color: Colors.black, width: 2.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  ),
+                ),
                 keyboardType:
-                    const TextInputType.numberWithOptions(decimal: true),
+                    const TextInputType.numberWithOptions(decimal: false),
                 validator: _validatePositiveNumber,
                 onSaved: (value) {
                   _carbRatio = double.parse(value!);
                 }),
+            Gap(15.0),
             TextFormField(
-                decoration: const InputDecoration(labelText: 'Target BG'),
+                decoration: const InputDecoration(
+                  labelText: 'Target BG',
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    borderSide: BorderSide(color: Colors.black, width: 2.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                    borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  ),
+                ),
                 keyboardType:
-                    const TextInputType.numberWithOptions(decimal: true),
+                    const TextInputType.numberWithOptions(decimal: false),
                 validator: _validatePositiveNumber,
                 onSaved: (value) {
                   _targetBloodGlucose = double.parse(value!);
                 }),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: ElevatedButton(
-                onPressed: _submitForm,
-                child: const Text('Calculate dose'),
+              padding: EdgeInsets.all(20.0),
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  // Respond to button press
+                },
+                icon: const Icon(Icons.calculate, size: 30),
+                label: const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Text(
+                      "CALCULATE DOSE",
+                      style: TextStyle(fontSize: 20.0),
+                    )),
               ),
             )
           ],
