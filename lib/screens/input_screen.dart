@@ -2,6 +2,7 @@ import 'package:bolus_calculator_v2/screens/add_food_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bolus_calculator_v2/components/plain_card.dart';
 import 'package:bolus_calculator_v2/components/text_button_card.dart';
+import 'package:bolus_calculator_v2/components/input_form.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -50,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
               flex: 3,
               child: PlainCard(
                 cardColor: Colors.orange.shade100,
+                cardWidget: const InputForm(),
               ),
             ),
           ],
