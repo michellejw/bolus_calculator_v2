@@ -13,6 +13,7 @@ dependencies:
   gap: ^3.0.1
   cupertino_icons: ^1.0.2
   sliding_up_panel: ^2.0.0+1
+  http: ^1.2.0
 
 dev_dependencies:
   flutter_test:
