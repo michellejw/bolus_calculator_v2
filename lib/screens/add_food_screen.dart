@@ -24,6 +24,12 @@ class _ListFoodPageState extends State<ListFoodPage> {
     });
   }
 
+  void _addItem() {
+    setState(() {
+      // add an item to the list.
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +46,7 @@ class _ListFoodPageState extends State<ListFoodPage> {
                 FilledButton(
                   onPressed: () {},
                   child: const Text(
-                    'Custom',
+                    'Add Custom Food',
                     style: kSettingsButtonTextStyle,
                   ),
                 ),
@@ -53,7 +59,18 @@ class _ListFoodPageState extends State<ListFoodPage> {
                   ),
                 ),
               ],
-            )
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _foodList.length,
+                itemBuilder: (context, index) {
+                  final item = _foodList[index];
+                  return const ListTile(
+                    title: Text('TEST'),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
