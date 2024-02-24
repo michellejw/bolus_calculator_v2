@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:bolus_calculator_v2/screens/add_food_screen.dart';
 import 'package:gap/gap.dart';
 import 'package:bolus_calculator_v2/utilities/constants.dart';
-import 'package:bolus_calculator_v2/components/settings_input_row.dart';
-import 'package:bolus_calculator_v2/components/buttons.dart';
+import 'package:bolus_calculator_v2/utilities/settings_input_row.dart';
+import 'package:bolus_calculator_v2/utilities/buttons.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);

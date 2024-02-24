@@ -1,6 +1,8 @@
 import 'package:bolus_calculator_v2/utilities/constants.dart';
+import 'package:bolus_calculator_v2/utilities/modal_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:bolus_calculator_v2/screens/add_custom_food.dart';
 
 class ListFoodPage extends StatefulWidget {
   const ListFoodPage({super.key});
@@ -44,7 +46,12 @@ class _ListFoodPageState extends State<ListFoodPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showCustomModalBottomSheet(
+                      context,
+                      const AddCustomFood(),
+                    );
+                  },
                   child: const Text(
                     'Add Custom Food',
                     style: kSettingsButtonTextStyle,
@@ -52,7 +59,12 @@ class _ListFoodPageState extends State<ListFoodPage> {
                 ),
                 const Gap(15.0),
                 FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showCustomModalBottomSheet(
+                      context,
+                      const Placeholder(),
+                    );
+                  },
                   child: const Text(
                     'Search',
                     style: kSettingsButtonTextStyle,

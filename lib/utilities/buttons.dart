@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bolus_calculator_v2/components/number_keypad.dart';
+import 'package:bolus_calculator_v2/utilities/number_keypad.dart';
 import 'package:bolus_calculator_v2/utilities/constants.dart';
 
 class EnterButton extends StatelessWidget {

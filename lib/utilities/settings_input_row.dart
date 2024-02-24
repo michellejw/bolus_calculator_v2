@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bolus_calculator_v2/utilities/constants.dart';
-import 'package:bolus_calculator_v2/components/buttons.dart';
+import 'package:bolus_calculator_v2/utilities/buttons.dart';
 
 class SettingsInputRow extends StatelessWidget {
   final String inputText;
