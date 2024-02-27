@@ -33,11 +33,41 @@ class SettingsInputRow extends StatelessWidget {
           ),
           Column(
             children: [
-              EnterButton(entered: entered, onUpdate: onUpdate, value: value),
+              EnterButton(
+                entered: entered,
+                onUpdate: onUpdate,
+                value: value,
+              ),
             ],
           )
         ],
       ),
     );
+  }
+}
+
+class UserInputRow extends StatelessWidget {
+  const UserInputRow({
+    super.key,
+    required this.promptText,
+    required this.userText,
+  });
+
+  final String promptText;
+  final String userText;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.symmetric(horizontal: 30.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              promptText,
+              style: kSettingsTextStyle,
+            ),
+          ],
+        ));
   }
 }

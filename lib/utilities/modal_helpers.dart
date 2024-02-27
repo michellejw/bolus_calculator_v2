@@ -14,7 +14,7 @@ void showCustomModalBottomSheet(BuildContext context, Widget child) {
         ),
         child: Container(
           padding: const EdgeInsets.only(top: 24),
-          child: const AddCustomFood(),
+          child: child,
         ),
       );
     },

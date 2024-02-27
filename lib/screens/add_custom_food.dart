@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class AddCustomFood extends StatefulWidget {
   const AddCustomFood({super.key});
@@ -10,6 +11,15 @@ class AddCustomFood extends StatefulWidget {
 class _AddCustomFoodState extends State<AddCustomFood> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Add Custom Food'),
+        ),
+        body: const SafeArea(
+            child: Column(
+          children: [
+            Gap(20.0),
+          ],
+        )));
   }
 }

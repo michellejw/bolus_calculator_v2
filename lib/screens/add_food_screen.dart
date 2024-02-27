@@ -3,6 +3,7 @@ import 'package:bolus_calculator_v2/utilities/modal_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:bolus_calculator_v2/screens/add_custom_food.dart';
+import 'package:bolus_calculator_v2/screens/food_search_screen.dart';
 
 class ListFoodPage extends StatefulWidget {
   const ListFoodPage({super.key});
@@ -62,7 +63,7 @@ class _ListFoodPageState extends State<ListFoodPage> {
                   onPressed: () {
                     showCustomModalBottomSheet(
                       context,
-                      const Placeholder(),
+                      const SearchFoods(),
                     );
                   },
                   child: const Text(
